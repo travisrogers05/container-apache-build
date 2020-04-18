@@ -5,10 +5,10 @@
 #   podman build -t example/apache-builder:1 .
 #
 # Example command to run the container:
-#   podman run --rm -it -v /tmpdir:/tmp/output example/apache-builder:1
+#   podman run --rm -it -v /tmpdir:/tmp/output:z example/apache-builder:1
 #
-# Where /tmpdir is a host directory mounted to /tmp/output within the container
-#
+# Where /tmpdir is a host directory mounted to /tmp/output within the container.
+# The :z at the end of the container mount path is for SElinux host systems.
 
 # Retrieve the latest Apache HTTPd source code and compile it
 CURVERSION=`curl -s http://httpd.apache.org/download.cgi | grep '(released ' | egrep -o "[0-9]+\.[0-9]+\.[0-9]+"`
