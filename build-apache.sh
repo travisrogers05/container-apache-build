@@ -11,7 +11,7 @@
 # The :z at the end of the container mount path is for SElinux host systems.
 
 # Retrieve the latest Apache HTTPd source code and compile it
-CURVERSION=`curl -s http://httpd.apache.org/download.cgi | grep '(released ' | egrep -o "[0-9]+\.[0-9]+\.[0-9]+"`
+CURVERSION=`curl -ks https://httpd.apache.org/download.cgi | grep '(released ' | grep -E -o "[0-9]+\.[0-9]+\.[0-9]+"`
 ARCHIVE=httpd-$CURVERSION.tar.gz
 SHORTARCHIVE=httpd-$CURVERSION
 DOWNLOADURL=https://downloads.apache.org/httpd
